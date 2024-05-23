@@ -1,6 +1,6 @@
 /* color variables */
 :root {
-  --lightSeparation: #ccc;
+  --lightSeparation: black;
   --darkSeparation: black;
   --lightItem: lightgrey;
   --darkItem: grey;

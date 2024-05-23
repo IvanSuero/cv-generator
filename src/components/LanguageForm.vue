@@ -18,7 +18,10 @@
           v-model="lang.level"
           label="Level"
           :options="levelOptions"
-          :dark="userStore.settings.theme === 'dark' ? 'black' : 'white'"
+          :dark="userStore.settings.theme === 'dark'"
+          label-color="black"
+          input-class="text-black"
+          color="black"
         />
       </q-expansion-item>
     </q-card-section>

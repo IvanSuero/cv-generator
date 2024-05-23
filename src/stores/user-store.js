@@ -2,12 +2,19 @@ import { defineStore } from 'pinia'
 
 export const useUserStore = defineStore('userStore', {
   state: () => ({
-    sections: [
-      { id: 'contactInfo', name: 'Contact Info' },
-      { id: 'skillsInfo', name: 'Skills' },
-      { id: 'languagesInfo', name: 'Languages' },
-      { id: 'socialInfo', name: 'Social Info' }
-    ],
+    progress: 0,
+    progressSections: {
+      name: false,
+      title: false,
+      description: false,
+      email: false,
+      phone: false,
+      workExperience: false,
+      education: false,
+      skills: false,
+      languages: false,
+      social: false
+    },
     personalInfo: {
       name: '',
       title: '',
@@ -28,12 +35,16 @@ export const useUserStore = defineStore('userStore', {
     skills: [],
     languages: [],
     settings: {
-      theme: '',
-      language: '',
+      theme: 'light',
+      language: 'es',
       uppercaseName: true,
       contactLogos: true,
-      emailLink: false,
-      socialLogos: true
+      emailLink: true,
+      socialLogos: true,
+      sectionSeparators: true,
+      columnSeparators: true,
+      headerSeparator: true,
+      pageBorder: true
     }
   }),
   getters: {
@@ -50,15 +61,6 @@ export const useUserStore = defineStore('userStore', {
     }
   },
   actions: {
-    setPersonalInfo (info) {
-      this.personalInfo = info
-    },
-    setContactInfo (info) {
-      this.contactInfo = info
-    },
-    setSocialInfo (info) {
-      this.socialInfo = info
-    },
     addWorkExperience (work) {
       this.workExperience.push(work)
     },
@@ -94,30 +96,18 @@ export const useUserStore = defineStore('userStore', {
       const indexToDelete = this.languages.indexOf(toDelete)
       this.languages.splice(indexToDelete, 1)
     },
-    setColumns () {
-      this.settings.columns = !this.settings.columns
-    },
-    clearStore () {
-      this.personalInfo = {
-        name: '',
-        title: '',
-        description: ''
-      }
-      this.contactInfo = {
-        email: '',
-        phone: ''
-      }
-      this.socialInfo = {
-        linkedin: '',
-        github: '',
-        website: '',
-        others: ''
-      }
-      this.workExperience = []
-      this.education = []
-      this.skills = []
-      this.languages = []
-      this.settings = {}
+    updateProgress () {
+      this.progressSections.name = this.personalInfo.name !== ''
+      this.progressSections.title = this.personalInfo.title !== ''
+      this.progressSections.description = this.personalInfo.description !== ''
+      this.progressSections.email = this.contactInfo.email !== ''
+      this.progressSections.phone = this.contactInfo.phone !== ''
+      this.progressSections.workExperience = this.workExperience.length > 0
+      this.progressSections.education = this.education.length > 0
+      this.progressSections.skills = this.skills.length > 0
+      this.progressSections.languages = this.languages.length > 0
+      this.progressSections.social = this.socialInfo.linkedin !== '' || this.socialInfo.github !== '' || this.socialInfo.website !== '' || this.socialInfo.others !== ''
+      this.progress = Object.values(this.progressSections).filter(section => section).length
     }
   },
   persist: true

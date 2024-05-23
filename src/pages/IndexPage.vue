@@ -1,42 +1,55 @@
 <template>
-  <q-page class="mainPage">
-    <q-scroll-area :dark="userStore.settings.theme==='dark'">
-      <CVSettings @download-cv="downloadPdf()" id="settings"/>
-    </q-scroll-area>
-    <CVPreview id="preview"/>
+  <q-page class="mainPage" id="main">
+    <q-splitter v-model="splitterModel" :limits="[35, 50]" class="splitter" id="splitContainer">
+      <template #before>
+        <div>
+          <CVSettings @download-cv="usePrint()" id="settings"/>
+        </div>
+      </template>
+      <template #separator>
+        <q-avatar :color="userStore.settings.theme === 'dark' ? 'white' : 'black'" :text-color="userStore.settings.theme === 'dark' ? 'black' : 'white'" size="40px" icon="drag_indicator" />
+      </template>
+      <template #after>
+        <div>
+          <CVPreview id="preview"/>
+        </div>
+      </template>
+    </q-splitter>
   </q-page>
 </template>
 
 <script setup>
 import CVSettings from 'src/components/CVSettings.vue'
 import CVPreview from 'src/components/CVPreview.vue'
-import html2pdf from 'html2pdf.js'
-import { useUserStore } from 'src/stores/user-store.js'
+import { ref } from 'vue'
+import { useUserStore } from 'src/stores/user-store'
 
+const splitterModel = ref(40)
 const userStore = useUserStore()
 
-const downloadPdf = async () => {
-  document.getElementById('print').style.height = '29.7cm'
-  await html2pdf(document.getElementById('print'), {
-    margin: 0,
-    filename: 'cv.pdf',
-    image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: { scale: 2 },
-    jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
-  })
-  document.getElementById('print').style.height = '20cm'
+const usePrint = () => {
+  document.getElementById('settings').style.display = 'none'
+  document.getElementById('print').classList.add('no-shadow')
+  document.getElementById('print').classList.add('printFormat')
+  document.getElementsByClassName('containerPreview')[0].classList.add('printFormat')
+  const element = document.getElementById('preview').innerHTML
+  document.getElementById('main').innerHTML = element
+  window.print()
+  window.location.reload()
 }
 </script>
 
 <style scoped>
-.mainPage {
-  display: grid;
-  grid-template-columns: 2fr 4fr;
-  gap: 1rem;
-  padding: 2rem 1rem 0 1rem;
+.splitter {
+  height: 99vh;
+}
+#settings {
+  padding: 3rem 0;
+  margin: 0 3rem;
 }
 
-#settings {
-  padding-bottom: 3rem;
+#preview {
+  padding: 0 0;
+  margin: 1.5rem 3rem;
 }
 </style>

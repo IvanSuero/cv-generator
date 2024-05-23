@@ -7,13 +7,16 @@ import { useUserStore } from 'src/stores/user-store'
 import { onMounted } from 'vue'
 import { useQuasar } from 'quasar'
 
-const userStore = useUserStore()
+// const userStore = useUserStore()
 const $q = useQuasar()
 
 onMounted(() => {
+  const userStore = useUserStore()
   const theme = userStore.settings.theme
   $q.dark.set(theme === 'dark')
+  userStore.updateProgress()
 })
+
 </script>
 
 <style>

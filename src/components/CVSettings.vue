@@ -1,5 +1,6 @@
 <template>
   <div class="settings">
+    <FormProgress />
     <div class="settingsForm">
       <FormatSettings />
     </div>
@@ -70,6 +71,7 @@ import SkillsForm from 'src/components/SkillsForm.vue'
 import LanguageForm from 'src/components/LanguageForm.vue'
 import FormatSettings from 'src/components/FormatSettings.vue'
 import SocialInfoForm from 'src/components/SocialInfoForm.vue'
+import FormProgress from 'src/components/FormProgress.vue'
 
 const emits = defineEmits(['download-cv'])
 </script>
@@ -79,16 +81,9 @@ const emits = defineEmits(['download-cv'])
   margin: 0 2rem;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 1rem;
   overflow: scroll;
-}
-
-.settingsForm {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 0.5rem;
 }
 
 .downloadBtn {

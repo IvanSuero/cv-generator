@@ -34,7 +34,9 @@
         v-model="userStore.personalInfo.description"
         label="Description"
         dense
-        :dark="userStore.settings.theme === 'dark' ? 'black' : 'white'"
+        :dark="userStore.settings.theme === 'dark'"
+        label-color="black"
+        input-class="text-black"
       />
     </q-card-section>
   </q-card>
