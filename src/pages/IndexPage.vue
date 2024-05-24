@@ -1,6 +1,6 @@
 <template>
   <q-page class="mainPage" id="main">
-    <q-splitter v-model="splitterModel" :limits="[35, 50]" class="splitter" id="splitContainer">
+    <q-splitter v-model="userStore.settings.divider" :limits="[35, 50]" class="splitter" id="splitContainer">
       <template #before>
         <div>
           <CVSettings @download-cv="usePrint()" id="settings"/>
@@ -21,10 +21,8 @@
 <script setup>
 import CVSettings from 'src/components/CVSettings.vue'
 import CVPreview from 'src/components/CVPreview.vue'
-import { ref } from 'vue'
 import { useUserStore } from 'src/stores/user-store'
 
-const splitterModel = ref(40)
 const userStore = useUserStore()
 
 const usePrint = () => {
@@ -44,7 +42,7 @@ const usePrint = () => {
   height: 99vh;
 }
 #settings {
-  padding: 3rem 0;
+  padding: 1.5rem 0;
   margin: 0 3rem;
 }
 

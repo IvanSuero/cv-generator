@@ -5,7 +5,7 @@
       <q-input
         filled
         v-model="userStore.contactInfo.email"
-        label="Email"
+        :label="$t('email')"
         dense
         :dark="userStore.settings.theme === 'dark'"
         class="inputText"
@@ -14,7 +14,7 @@
       />
       <q-checkbox
         v-model="userStore.settings.emailLink"
-        label="Add link to the email"
+        :label="$t('addLinkEmail')"
         :color="userStore.settings.theme === 'dark' ? 'white' : 'black'"
         keep-color
         size="2rem"
@@ -22,13 +22,13 @@
         unchecked-icon="radio_button_unchecked"
       >
         <q-tooltip self="center right" max-width="250px">
-          When someone clicks on the email, it will open the default email client.
+          {{ $t('emailTooltip') }}
         </q-tooltip>
       </q-checkbox>
       <q-input
         filled
         v-model="userStore.contactInfo.phone"
-        label="Phone"
+        :label="$t('phone')"
         color="white"
         dense
         class="text-white"
@@ -38,7 +38,7 @@
       />
       <q-checkbox
         v-model="userStore.settings.contactLogos"
-        label="Show contact icons"
+        :label="$t('showContactIcons')"
         :color="userStore.settings.theme === 'dark' ? 'white' : 'black'"
         keep-color
         size="2rem"

@@ -10,13 +10,13 @@
         <q-btn icon="delete" flat @click="userStore.deleteLanguage(lang.id)" />
         <p>{{ lang.name }}</p>
       </template>
-        <q-input filled dense v-model="lang.name" label="Language" :dark="userStore.settings.theme === 'dark'" label-color="black"
+        <q-input filled dense v-model="lang.name" :label="$t('language')" :dark="userStore.settings.theme === 'dark'" label-color="black"
         input-class="text-black" />
         <q-select
           filled
           dense
           v-model="lang.level"
-          label="Level"
+          :label="$t('level')"
           :options="levelOptions"
           :dark="userStore.settings.theme === 'dark'"
           label-color="black"
@@ -26,7 +26,7 @@
       </q-expansion-item>
     </q-card-section>
     <q-card-section class="buttons">
-      <q-btn dense @click="addLanguage()" class="addButton" icon="add" label="Add language"/>
+      <q-btn dense @click="addLanguage()" class="addButton" icon="add" :label="$t('addLanguage')"/>
     </q-card-section>
   </q-card>
 </template>

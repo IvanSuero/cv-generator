@@ -9,7 +9,7 @@
     >
       <q-tooltip anchor="top middle" self="bottom middle" :offset="[10, 10]">
         <div class="text">
-          Progress: {{ Math.round(userStore.progress * 100) }}%
+          {{ $t('progress') }}: {{ Math.round(userStore.progress * 100) }}%
         </div>
       </q-tooltip>
     </q-linear-progress>

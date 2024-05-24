@@ -9,24 +9,24 @@
       >
       <template #header>
         <q-btn icon="delete" flat @click="userStore.deleteEducation(education.id)" />
-        <p>{{ education.title }} at {{ education.school }}</p>
+        <p>{{ education.title }} {{ $t('at') }} {{ education.school }}</p>
       </template>
-        <q-input filled dense v-model="education.title" label="Title" :dark="userStore.settings.theme === 'dark'" label-color="black"
+        <q-input filled dense v-model="education.title" :label="$t('title')" :dark="userStore.settings.theme === 'dark'" label-color="black"
         input-class="text-black"/>
-        <q-input filled dense v-model="education.school" label="Company" :dark="userStore.settings.theme === 'dark'" label-color="black"
+        <q-input filled dense v-model="education.school" :label="$t('school')" :dark="userStore.settings.theme === 'dark'" label-color="black"
         input-class="text-black"/>
-        <q-input filled dense v-model="education.location" label="Location" :dark="userStore.settings.theme === 'dark'" label-color="black"
+        <q-input filled dense v-model="education.location" :label="$t('location')" :dark="userStore.settings.theme === 'dark'" label-color="black"
         input-class="text-black"/>
-        <q-input filled dense v-model="education.startDate" label="Start date" :dark="userStore.settings.theme === 'dark'" label-color="black"
+        <q-input filled dense v-model="education.startDate" :label="$t('startDate')" :dark="userStore.settings.theme === 'dark'" label-color="black"
         input-class="text-black"/>
-        <q-input filled dense v-model="education.endDate" label="End date" :dark="userStore.settings.theme === 'dark'" label-color="black"
+        <q-input filled dense v-model="education.endDate" :label="$t('endDate')" :dark="userStore.settings.theme === 'dark'" label-color="black"
         input-class="text-black"/>
-        <q-input filled dense v-model="education.description" label="Description" :dark="userStore.settings.theme === 'dark'" label-color="black"
+        <q-input filled dense v-model="education.description" :label="$t('description')" :dark="userStore.settings.theme === 'dark'" label-color="black"
         input-class="text-black"/>
       </q-expansion-item>
     </q-card-section>
     <q-card-section class="buttons">
-      <q-btn @click="addEducation()" class="addButton" icon="add" label="Add education"/>
+      <q-btn @click="addEducation()" class="addButton" icon="add" :label="$t('addEducation')"/>
     </q-card-section>
   </q-card>
 </template>

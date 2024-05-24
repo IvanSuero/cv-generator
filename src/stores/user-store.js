@@ -44,7 +44,8 @@ export const useUserStore = defineStore('userStore', {
       sectionSeparators: true,
       columnSeparators: true,
       headerSeparator: true,
-      pageBorder: true
+      pageBorder: true,
+      divider: 49
     }
   }),
   getters: {
@@ -88,9 +89,6 @@ export const useUserStore = defineStore('userStore', {
     addLanguage (language) {
       this.languages.push(language)
     },
-    addSocialInfo (info) {
-      this.socialInfo = info
-    },
     deleteLanguage (index) {
       const toDelete = this.languages.find(language => language.id === index)
       const indexToDelete = this.languages.indexOf(toDelete)
@@ -107,7 +105,7 @@ export const useUserStore = defineStore('userStore', {
       this.progressSections.skills = this.skills.length > 0
       this.progressSections.languages = this.languages.length > 0
       this.progressSections.social = this.socialInfo.linkedin !== '' || this.socialInfo.github !== '' || this.socialInfo.website !== '' || this.socialInfo.others !== ''
-      this.progress = Object.values(this.progressSections).filter(section => section).length
+      this.progress = Object.values(this.progressSections).filter(section => section).length / Object.values(this.progressSections).length
     }
   },
   persist: true

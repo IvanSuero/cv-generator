@@ -4,7 +4,7 @@
       <q-input
         filled
         v-model="userStore.socialInfo.linkedin"
-        label="Linkedin"
+        :label="$t('linkedin')"
         label-color="black"
         input-class="text-black"
         dense
@@ -12,7 +12,7 @@
       <q-input
         filled
         v-model="userStore.socialInfo.github"
-        label="Github"
+        :label="$t('github')"
         dense
         label-color="black"
         input-class="text-black"
@@ -20,7 +20,7 @@
       <q-input
         filled
         v-model="userStore.socialInfo.website"
-        label="Website"
+        :label="$t('website')"
         dense
         label-color="black"
         input-class="text-black"
@@ -28,14 +28,14 @@
       <q-input
         filled
         v-model="userStore.socialInfo.others"
-        label="Others"
+        :label="$t('others')"
         label-color="black"
         input-class="text-black"
         dense
       />
       <q-checkbox
         v-model="userStore.settings.socialLogos"
-        label="Show social icons"
+        :label="$t('showSocialIcons')"
         :color="userStore.settings.theme === 'dark' ? 'white' : 'black'"
         keep-color
         size="2rem"

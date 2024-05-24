@@ -6,59 +6,71 @@
     </div>
 
     <q-expansion-item
-      label="Personal information"
+      :label="$t('personalInformation')"
       icon="person"
       default-open
     >
       <PersonalInfoForm />
     </q-expansion-item>
     <q-expansion-item
-      label="Contact information"
+      :label="$t('contactInformation')"
       icon="contact_mail"
       default-open
     >
       <ContactInfoForm />
     </q-expansion-item>
     <q-expansion-item
-      label="Work experience"
+      :label="$t('workExperience')"
       icon="business_center"
       default-open
     >
       <ExperienceForm />
     </q-expansion-item>
     <q-expansion-item
-      label="Education"
+      :label="$t('education')"
       icon="school"
       default-open
     >
       <EducationForm />
     </q-expansion-item>
     <q-expansion-item
-      label="Skills"
+      :label="$t('skills')"
       icon="star"
       default-open
     >
       <SkillsForm />
     </q-expansion-item>
     <q-expansion-item
-      label="Languages"
+      :label="$t('languages')"
       icon="language"
       default-open
     >
       <LanguageForm />
     </q-expansion-item>
     <q-expansion-item
-      label="Social"
+      :label="$t('social')"
       icon="web"
       default-open
     >
       <SocialInfoForm />
     </q-expansion-item>
-    <q-btn
-      label="Download CV"
-      class="q-mt-md downloadBtn"
-      @click="emits('download-cv')"
-    />
+    <div>
+      <q-btn
+        :label="$t('downloadCV')"
+        class="q-mt-md downloadBtn"
+        @click="emits('download-cv')"
+      />
+      <q-btn
+        :label="$t('setTestData')"
+        class="q-mt-md downloadBtn"
+        @click="setDefaultStore()"
+      />
+      <q-btn
+        :label="$t('clearData')"
+        class="q-mt-md downloadBtn"
+        @click="clearStore()"
+      />
+    </div>
   </div>
 </template>
 
@@ -72,8 +84,10 @@ import LanguageForm from 'src/components/LanguageForm.vue'
 import FormatSettings from 'src/components/FormatSettings.vue'
 import SocialInfoForm from 'src/components/SocialInfoForm.vue'
 import FormProgress from 'src/components/FormProgress.vue'
+import { setDefaultStore, clearStore } from 'src/helpers/setDefaultStore'
 
 const emits = defineEmits(['download-cv'])
+
 </script>
 
 <style scoped>

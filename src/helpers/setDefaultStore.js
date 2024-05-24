@@ -2,10 +2,10 @@ import { user } from 'src/stores/start.user'
 import { useUserStore } from 'src/stores/user-store'
 
 const userStore = useUserStore()
-
 // This function sets the default values of the user store
 
-export function setDefaultStore (userStore) {
+export function setDefaultStore () {
+  console.log(user.progress)
   userStore.progress = user.progress
   userStore.progressSections = user.progressSections
   userStore.personalInfo = user.personalInfo

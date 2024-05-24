@@ -8,7 +8,7 @@
         <q-input
           filled
           v-model="tag"
-          label="New skill"
+          :label="$t('newSkill')"
           dense
           :dark="userStore.settings.theme === 'dark'"
           label-color="black"

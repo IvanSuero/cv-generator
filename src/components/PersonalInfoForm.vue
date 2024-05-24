@@ -5,7 +5,7 @@
       <q-input
         filled
         v-model="userStore.personalInfo.name"
-        label="Name"
+        :label="$t('name')"
         dense
         :dark="userStore.settings.theme === 'dark'"
         label-color="black"
@@ -13,7 +13,7 @@
       />
       <q-checkbox
         v-model="userStore.settings.uppercaseName"
-        label="Uppercase name"
+        :label="$t('uppercaseName')"
         :color="userStore.settings.theme === 'dark' ? 'white' : 'black'"
         keep-color
         size="2rem"
@@ -23,7 +23,7 @@
       <q-input
         filled
         v-model="userStore.personalInfo.title"
-        label="Title"
+        :label="$t('title')"
         dense
         :dark="userStore.settings.theme === 'dark'"
         label-color="black"
@@ -32,7 +32,7 @@
       <q-input
         filled
         v-model="userStore.personalInfo.description"
-        label="Description"
+        :label="$t('description')"
         dense
         :dark="userStore.settings.theme === 'dark'"
         label-color="black"

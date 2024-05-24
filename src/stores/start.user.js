@@ -1,5 +1,5 @@
 export const user = {
-  progress: 0,
+  progress: 1,
   progressSections: {
     name: true,
     title: true,
@@ -27,24 +27,55 @@ export const user = {
     website: 'john-doe.com',
     others: ''
   },
-  workExperience: [{
-    id: 1,
-    title: 'Web Developer',
-    company: 'Company Name',
-    location: 'City, Country',
-    startDate: '2020-01-01',
-    endDate: '2020-12-31',
-    description: 'Job description'
-  }],
-  education: [{
-    id: 1,
-    title: 'Degree',
-    school: 'School Name',
-    location: 'City, Country',
-    startDate: '2016-01-01',
-    endDate: '2020-12-31',
-    description: 'Description'
-  }],
+  workExperience: [
+    {
+      id: 1,
+      title: 'Web Developer',
+      company: 'Company Name',
+      location: 'City, Country',
+      startDate: '2020-01-01',
+      endDate: '2020-12-31',
+      description: 'Job description'
+    },
+    {
+      id: 2,
+      title: 'Web Developer',
+      company: 'Company Name',
+      location: 'City, Country',
+      startDate: '2020-01-01',
+      endDate: '2020-12-31',
+      description: 'Job description'
+    },
+    {
+      id: 3,
+      title: 'Web Developer',
+      company: 'Company Name',
+      location: 'City, Country',
+      startDate: '2020-01-01',
+      endDate: '2020-12-31',
+      description: 'Job description'
+    }
+  ],
+  education: [
+    {
+      id: 1,
+      title: 'Degree',
+      school: 'School Name',
+      location: 'City, Country',
+      startDate: '2016-01-01',
+      endDate: '2020-12-31',
+      description: 'Description'
+    },
+    {
+      id: 2,
+      title: 'Degree',
+      school: 'School Name',
+      location: 'City, Country',
+      startDate: '2016-01-01',
+      endDate: '2020-12-31',
+      description: 'Description'
+    }
+  ],
   skills: [
     { id: 1, name: 'HTML' },
     { id: 2, name: 'CSS' },
@@ -64,6 +95,7 @@ export const user = {
     sectionSeparators: true,
     columnSeparators: true,
     headerSeparator: true,
-    pageBorder: true
+    pageBorder: true,
+    divider: 49
   }
 }

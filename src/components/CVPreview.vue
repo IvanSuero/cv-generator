@@ -2,15 +2,15 @@
 <div class="containerPreview" id="container">
   <q-card :class="userStore.settings.pageBorder ? 'printBorder' : ''" id="print">
     <q-card-section :class="`personalInfo ${userStore.settings.headerSeparator ? '' : `noHeaderSeparator`}`">
-      <p class="name" :style="{ textTransform: userStore.settings.uppercaseName ? 'uppercase' : 'none' }">{{ userStore.personalInfo.name || 'Name' }}</p>
-      <p class="title">{{ userStore.personalInfo.title || 'Title' }}</p>
+      <p class="name" :style="{ textTransform: userStore.settings.uppercaseName ? 'uppercase' : 'none' }">{{ userStore.personalInfo.name || $t('name') }}</p>
+      <p class="title">{{ userStore.personalInfo.title || $t('title') }}</p>
       <p class="description">{{ userStore.personalInfo.description }}</p>
     </q-card-section>
 
     <q-card-section class="columns">
       <div :class="`column1 ${userStore.settings.columnSeparators ? '' : `noColumnSeparators`}`">
           <q-card-section :class="`sectionInfo ${userStore.settings.sectionSeparators ? '' : `noSeparators`}`">
-            <p class="sectionTitle">Contact</p>
+            <p class="sectionTitle">{{ $t('contact') }}</p>
             <div class="sectionItems">
               <p class="contactItem" v-show="userStore.contactInfo.email !== ''">
                 <a v-if="userStore.settings.emailLink" :href="'mailto:' + userStore.contactInfo.email">
@@ -30,21 +30,21 @@
           </q-card-section>
 
           <q-card-section :class="`sectionInfo ${userStore.settings.sectionSeparators ? '' : `noSeparators`}`">
-            <p class="sectionTitle">Skills</p>
+            <p class="sectionTitle">{{ $t('skills') }}</p>
             <div class="skillSectionItems">
                 <q-badge class="skillItem" v-for="skill in userStore.skills" :key="skill.id">{{ skill.name }}</q-badge>
             </div>
           </q-card-section>
 
           <q-card-section :class="`sectionInfo ${userStore.settings.sectionSeparators ? '' : `noSeparators`}`">
-            <p class="sectionTitle">Languages</p>
+            <p class="sectionTitle">{{ $t('languages') }}</p>
             <div class="languagesSectionItems">
               <p class="language" v-for="lang in userStore.languages" :key="lang.id"><span>{{ lang.name }}</span><span>{{ lang.level }}</span></p>
             </div>
           </q-card-section>
 
           <q-card-section :class="`sectionInfo lastSectionInfo ${userStore.settings.sectionSeparators ? '' : `noSeparators`}`">
-            <p class="sectionTitle">Social</p>
+            <p class="sectionTitle">{{ $t('social') }}</p>
             <div class="sectionItems">
               <p class="contactItem" v-show="userStore.socialInfo.linkedin !== ''">
                 <svg class="cvIcon" v-show="userStore.settings.socialLogos">
@@ -74,7 +74,7 @@
 
       <div class="column2">
         <q-card-section :class="`sectionInfo ${userStore.settings.sectionSeparators ? '' : `noSeparators`}`">
-          <p class="sectionTitle">Work experience</p>
+          <p class="sectionTitle">{{ $t('workExperience') }}</p>
           <q-card-section
             v-for="work in userStore.workExperience"
             :key="work.id"
@@ -88,7 +88,7 @@
           </q-card-section>
         </q-card-section>
         <q-card-section :class="`sectionInfo lastSectionInfo ${userStore.settings.sectionSeparators ? '' : `noSeparators`}`">
-          <p class="sectionTitle">Education</p>
+          <p class="sectionTitle">{{ $t('education') }}</p>
           <q-card-section
             v-for="education in userStore.education"
             :key="education.key"
