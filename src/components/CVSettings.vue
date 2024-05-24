@@ -54,22 +54,24 @@
     >
       <SocialInfoForm />
     </q-expansion-item>
-    <div>
+    <div class="buttonsColumn">
       <q-btn
         :label="$t('downloadCV')"
         class="q-mt-md downloadBtn"
         @click="emits('download-cv')"
       />
-      <q-btn
-        :label="$t('setTestData')"
-        class="q-mt-md downloadBtn"
-        @click="setDefaultStore()"
-      />
-      <q-btn
-        :label="$t('clearData')"
-        class="q-mt-md downloadBtn"
-        @click="clearStore()"
-      />
+      <div class="buttonsRow">
+        <q-btn
+          :label="$t('setTestData')"
+          class="q-mt-md downloadBtn"
+          @click="setDefaultStore()"
+        />
+        <q-btn
+          :label="$t('clearData')"
+          class="q-mt-md downloadBtn"
+          @click="clearStore()"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -114,5 +116,17 @@ const emits = defineEmits(['download-cv'])
 .q-expansion-item {
   background-color: var(--expansionItem);
   border-radius: 5px;
+}
+
+.buttonsColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.buttonsRow {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
 }
 </style>
