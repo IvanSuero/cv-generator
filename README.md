@@ -1,33 +1,21 @@
-# CV Generator (cv-generator)
+# CV Generator
 
-CV Generator
+CV Generator is an open-sourced app that creates faster and easier CV.
 
-## Install the dependencies
-```bash
-yarn
-# or
-npm install
-```
+URL: https://cv-generator.up.railway.app/
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
-```bash
-quasar dev
-```
+# Features
 
+-Dark and light theme
+-Multilingual
+-Accessible
+-No login required
 
-### Lint the files
-```bash
-yarn lint
-# or
-npm run lint
-```
+# Technologies used
 
-
-
-### Build the app for production
-```bash
-quasar build
-```
-
-### Customize the configuration
-See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-config-js).
+-HTML
+-CSS
+-JavaScript
+-Vue.js
+-Quasar
+-Railway
