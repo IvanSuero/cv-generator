@@ -4,14 +4,14 @@ CV Generator is an open-sourced app that creates faster and easier CV.
 
 URL: https://cv-generator.up.railway.app/
 
-# Features
+## Features
 
 -Dark and light theme
 -Multilingual
 -Accessible
 -No login required
 
-# Technologies used
+## Technologies used
 
 -HTML
 -CSS
