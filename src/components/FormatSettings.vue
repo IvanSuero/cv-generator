@@ -19,7 +19,7 @@
       />
       <q-select
         v-model="locale"
-        :options="[{value:'en-US', label:$t('english')}, {value:'es', label:$t('spanish')}]"
+        :options="[{value:'en-US', label:$t('english')}, {value:'es-ES', label:$t('spanish')}]"
         :color="userStore.settings.theme === 'dark' ? 'white' : 'black'"
         :label-color="userStore.settings.theme === 'dark' ? 'white' : 'black'"
         dense
