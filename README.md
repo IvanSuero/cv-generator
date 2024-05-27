@@ -6,16 +6,16 @@ URL: https://cv-generator.up.railway.app/
 
 ## Features
 
--Dark and light theme
--Multilingual
--Accessible
--No login required
+- Dark and light theme
+- Multilingual
+- Accessible
+- No login required
 
 ## Technologies used
 
--HTML
--CSS
--JavaScript
--Vue.js
--Quasar
--Railway
+- HTML
+- CSS
+- JavaScript
+- Vue.js
+- Quasar
+- Railway
