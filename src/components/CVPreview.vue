@@ -1,6 +1,6 @@
 <template>
-<div class="containerPreview" id="container">
-  <q-card :class="userStore.settings.pageBorder ? 'printBorder' : ''" id="print">
+<div class="containerPreview" id="container" :style="{ width: `${width}cm`, height: `${height}cm` }">
+  <q-card :class="userStore.settings.pageBorder ? 'printBorder' : ''" id="print" :style="{ width: `${width-1}cm`, height: `${height-1}cm` }">
     <q-card-section :class="`personalInfo ${userStore.settings.headerSeparator ? '' : `noHeaderSeparator`}`">
       <p class="name" :style="{ textTransform: userStore.settings.uppercaseName ? 'uppercase' : 'none' }">{{ userStore.personalInfo.name || $t('name') }}</p>
       <p class="title">{{ userStore.personalInfo.title || $t('title') }}</p>
@@ -111,6 +111,8 @@
 import { useUserStore } from 'src/stores/user-store.js'
 
 const userStore = useUserStore()
+const width = window.innerWidth / 80
+const height = window.innerHeight / 40
 </script>
 
 <style scoped>

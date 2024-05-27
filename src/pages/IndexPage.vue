@@ -1,6 +1,6 @@
 <template>
   <q-page class="mainPage" id="main">
-    <q-splitter v-model="userStore.settings.divider" :limits="[35, 50]" class="splitter" id="splitContainer">
+    <q-splitter v-if="screenWidth>1024" v-model="userStore.settings.divider" :limits="[35, 45]" class="splitter" id="splitContainer">
       <template #before>
         <div>
           <CVSettings @download-cv="usePrint()" id="settings"/>
@@ -15,6 +15,10 @@
         </div>
       </template>
     </q-splitter>
+    <div v-else>
+      <CVSettings @download-cv="usePrint()" id="settings"/>
+      <CVPreview id="preview"/>
+    </div>
   </q-page>
 </template>
 
@@ -24,6 +28,7 @@ import CVPreview from 'src/components/CVPreview.vue'
 import { useUserStore } from 'src/stores/user-store'
 
 const userStore = useUserStore()
+const screenWidth = window.innerWidth
 
 const usePrint = () => {
   document.getElementById('settings').style.display = 'none'
