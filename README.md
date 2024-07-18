@@ -18,4 +18,4 @@ URL: https://cv-generator.up.railway.app/
 - JavaScript
 - Vue.js
 - Quasar
-- Railway
+- Vercel
